@@ -37,15 +37,14 @@
                     <i class="fa fa-bars"></i> Categorias 
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Electronica / Tv, Audio </a>
-                    <a class="dropdown-item" href="#">Auto / Transporte</a>
-                    <a class="dropdown-item" href="#">Ropa Moda / Textiles </a>
-                    <a class="dropdown-item" href="#">Casa & Jardin / Construccion / Luces </a>
-                    <a class="dropdown-item" href="#">Computadoras / Telefonos </a> 
+                    <a class="dropdown-item" href="{% url 'store' %}">Todos los productos</a>
+                    {% for category in links %}
+                    <a class="dropdown-item" href="{{category.get_url}}">{{category.cat_name|capfirst}}</a> 
+                    {% endfor %}
                 </div>
             </div>  <!-- category-wrap.// -->
         </div> <!-- col.// -->
-        <a href="./store.html" class="btn btn-outline-primary">Tienda</a>
+        <a href="{% url 'home'%}" class="btn btn-outline-primary">Tienda</a>
         <div class="col-lg  col-md-6 col-sm-12 col">
             <form action="#" class="search">
                 <div class="input-group w-100">
